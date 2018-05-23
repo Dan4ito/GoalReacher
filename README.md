@@ -2,6 +2,8 @@
 GoalReacher - the app to keep you organised
 Project summary - [here](https://docs.google.com/document/d/1gbVBdrmU77PjRqBdNLOxhYbQjkYVfjUFOxQlmrX2uVE/edit?usp=sharing)
 
+Fullstack Application Development with Node.js + Express.js + React.js
+
 1. Clone the repository
 2. Open the GoalReacher folder and run "npm install" for the server packages.
 3. Open the client_src folder and run "npm install" for the front-end packages.
