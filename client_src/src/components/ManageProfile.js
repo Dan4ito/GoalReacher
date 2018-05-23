@@ -9,40 +9,46 @@ class ManageProfile extends Component {
             OldPassword: '',
             NewPassword: '',
             Message: '',
-            Message2:'',
+            Message2: '',
             firstName: JSON.parse(localStorage.getItem("state")).firstName
         }
     }
     updateState = (event) => {
         this.setState({ [event.target.name]: event.target.value });
-        
+
 
     }
     changePassword = (event) => {
         event.preventDefault();
-        if (this.state.OldPassword === '' || this.state.NewPassword === '') {
-            this.setState({ Message: "Empty fields are forbidden!" })
-        }
-        else {
-            axios.post(`http://localhost:3000/api/Users/change-password?access_token=${JSON.parse(localStorage.getItem("state")).accessToken}`, { id: JSON.parse(localStorage.getItem("state")).id, oldPassword: this.state.OldPassword, newPassword: this.state.NewPassword })
-                .then(response => {
-                    this.setState({ Message: "Your password has been changed!" })
-                }).catch(error => {
-                    this.setState({ Message: "Invalid Old Password!" })
-                });
-        }
+        this.setState({Message: ''});
+        setTimeout(() => {
+            if (this.state.OldPassword === '' || this.state.NewPassword === '') {
+                this.setState({ Message: "Empty fields are forbidden!" })
+            }
+            else {
+                axios.post(`http://localhost:3000/api/Users/change-password?access_token=${JSON.parse(localStorage.getItem("state")).accessToken}`, { id: JSON.parse(localStorage.getItem("state")).id, oldPassword: this.state.OldPassword, newPassword: this.state.NewPassword })
+                    .then(response => {
+                        this.setState({ Message: "Your password has been changed!" })
+                    }).catch(error => {
+                        this.setState({ Message: "Invalid Old Password!" })
+                    });
+            }
+        }, 200);
     }
     changeName = (event) => {
         event.preventDefault();
-        if(this.state.firstName === ''){
-            this.setState({Message2: "Empty name is not allowed!"})
-        }
-        else{
-            let allState = JSON.parse(localStorage.getItem("state"));
-            allState.firstName = this.state.firstName;
-            localStorage.setItem("state", JSON.stringify(allState));
-            this.setState({ Message2: "Your account name has been changed!" })
-        }
+        this.setState({ Message2: '' });
+        setTimeout(() => {
+            if (this.state.firstName === '') {
+                this.setState({ Message2: "Empty name is not allowed!" })
+            }
+            else {
+                let allState = JSON.parse(localStorage.getItem("state"));
+                allState.firstName = this.state.firstName;
+                localStorage.setItem("state", JSON.stringify(allState));
+                this.setState({ Message2: "Your account name has been changed!" })
+            }
+        }, 200);
     }
 
     render() {
@@ -76,14 +82,14 @@ class ManageProfile extends Component {
                             <div>
                                 <label>Name:</label>
                                 <br />
-                                <input type="text" value={this.state.firstName} name="firstName" onChange={this.updateState}/>
+                                <input type="text" value={this.state.firstName} name="firstName" onChange={this.updateState} />
                             </div>
 
                             <button type="submit" className="btn btn-info" onClick={this.changeName}> Proceed </button>
                         </form>
                         <div>{this.state.Message2}</div>
                     </div>
-                    
+
                 </div>
             </div>
         );

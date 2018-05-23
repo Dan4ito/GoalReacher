@@ -7,11 +7,13 @@ import './goals/Goals.css';
 class Goals extends Component {
     constructor(props) {
         super(props);
-        this.state = JSON.parse(localStorage.getItem("state"))
+        this.state = JSON.parse(localStorage.getItem("state"));
     }
 
     componentWillMount() {
         this.setState(JSON.parse(localStorage.getItem("state")));
+        this.setState({hasCompletedGoals : false});
+        console.log(this.state);
     }
 
     RemoveGoal = i => {
@@ -90,7 +92,7 @@ class Goals extends Component {
                     <div id="add">
                         <button onClick={this.AddGoal.bind(null, "New Goal")} className="btn btn-info">Add</button>
                     </div>
-                    <div className="completedGoals">
+                    <div className="completedGoals">                
                         <h3 className="title">Completed Goals</h3>
                         {
                             this.state.completedGoals.slice(0, 5).map(function (GoalText, i) {

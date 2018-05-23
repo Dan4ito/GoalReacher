@@ -17,6 +17,9 @@ class Motivation extends Component {
                 let quoteArray = [];
                 response.data.map( quoteObj => quoteArray.push(quoteObj.quote));
                 this.setState({quotes: quoteArray});
+                if(this.state.quotes.length === 0){
+                    this.setState({quoteToDisplay: `"The database may be empty, but you are smart enough to think of your own inspiring quote."—Yordan Petkov`}); //TEST!!!
+                }
                 let quoteIndex = Math.floor(Math.random() * (this.state.quotes.length));
                 this.setState({quoteToDisplay: this.state.quotes[quoteIndex]});
             })
