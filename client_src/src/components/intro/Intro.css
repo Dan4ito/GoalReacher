@@ -1,0 +1,43 @@
+.title{
+    text-align:center;
+    margin-top:1em;
+    margin-bottom:1em;
+}
+.leftDiv{
+    float:left;
+    width:70%;
+    text-align:center;
+   
+    padding:1em;
+    padding-left:5em;
+    padding-top:6em;
+}
+.rightDiv{
+    width:25%;
+    float:left;
+    text-align:center;
+   
+}
+
+.rightDiv .btn{
+    margin:1em;
+}
+.specialCard{
+    background-color:rgba(0,0,0,0.07);
+    border: 2px solid rgba(0,0,0,0.05);
+    border-radius: 12px;
+    line-height: 1.6;
+    margin:1em;
+    padding:1em;
+}
+
+
+/* If the screen size is 600px wide or less, hide the element */
+@media only screen and (max-width: 900px) {
+    .leftDiv, .rightDiv {
+      width:100%;
+    }
+    .leftDiv{
+        padding:1em;
+    }
+  }

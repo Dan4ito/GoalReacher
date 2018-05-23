@@ -1,0 +1,41 @@
+.date, .time, .localWeather {
+    text-align: center;
+    margin:20px;
+}
+
+.localWeather{
+  font-family: 'Roboto', sans-serif;
+  font-size: 45px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 1px 2px 2px #555;
+}
+.date{
+    font-family: 'Open Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  font-style: italic;
+}
+.time{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 6em;
+    /* width: 40%; */
+    /* display: flex; */
+    text-align: center;
+}
+
+#forecast{
+    display:flex;
+    width:100%;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align:center;
+}
+
+#address,#now,#hourly,#weekly{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 550;
+    font-style: italic;
+    margin-bottom:1em;
+}

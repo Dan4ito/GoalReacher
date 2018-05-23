@@ -1,0 +1,60 @@
+.Goals{
+    margin:2em;
+    text-align:center;
+
+}
+.currentGoals{
+    /* display:flex;
+    flex-direction: column; */
+
+    
+    
+}
+.GoalInfo{
+    display:inline-block;
+    width:80%;
+    
+}
+textarea{
+    width:100%;
+}
+.GoalButtons{
+    display:inline-block;
+    width:20%;   
+}
+
+.GoalButtons button{
+    margin:1em;
+
+}
+
+.title{
+    text-align:center;
+    margin-top:1em;
+    margin-bottom:1em;
+}
+.specialCard{
+    background-color:rgba(0,0,0,0.14);
+    border: 2px solid rgba(0,0,0,0.17);
+    border-radius: 12px;
+    line-height: 1.6;
+    margin:1em;
+    padding:1em;
+}
+
+#add{
+    text-align:center;
+}
+
+
+/* If the screen size is 600px wide or less, hide the element */
+@media only screen and (max-width: 1300px) {
+    .GoalInfo {
+      display:block;
+      width:100%;
+    }
+    .GoalButtons{
+        width:100%;
+        text-align:center;
+    }
+}
