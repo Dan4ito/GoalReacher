@@ -46,6 +46,10 @@ class ManageProfile extends Component {
                 let allState = JSON.parse(localStorage.getItem("state"));
                 allState.firstName = this.state.firstName;
                 localStorage.setItem("state", JSON.stringify(allState));
+                axios.post(`http://localhost:3000/api/userInfos/${allState.id}/replace?access_token=${allState.accessToken}`, allState)
+                .then((response) => {
+                    localStorage.setItem("state", JSON.stringify({ firstName: response.data.firstName, email: response.data.email, currentGoals: response.data.currentGoals, completedGoals: response.data.completedGoals, currentTasks: response.data.currentTasks, accessToken: this.state.accessToken, id: response.data.id }));
+                })
                 this.setState({ Message2: "Your account name has been changed!" })
             }
         }, 200);
