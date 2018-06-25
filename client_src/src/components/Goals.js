@@ -12,8 +12,6 @@ class Goals extends Component {
 
     componentWillMount() {
         this.setState(JSON.parse(localStorage.getItem("state")));
-        this.setState({hasCompletedGoals : false});
-        console.log(this.state);
     }
 
     RemoveGoal = i => {
